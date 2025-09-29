@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu"
 import {
@@ -19,8 +18,8 @@ import Image from "next/image"
 export default function Navbar() {
 
   return (
-    <header className="border-b px-4 md:px-6">
-      <div className="flex h-16 items-center justify-between gap-4">
+    <header className="container mx-auto sticky top-1 z-50 bg-muted rounded-md px-2">
+      <div className="flex h-16 items-center justify-between gap-4 w-full">
         {/* Left side */}
         <div className="flex flex-1 items-center gap-2">
           {/* Mobile menu trigger */}
@@ -58,11 +57,11 @@ export default function Navbar() {
                 </svg>
               </Button>
             </PopoverTrigger>
-            <PopoverContent align="start" className="w-48 p-1 md:hidden">
+            <PopoverContent align="start" className="w-72 mt-3 md:hidden">
               <NavigationMenu className="max-w-none *:w-full">
-                <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
+                <NavigationMenuList className="flex-col items-start gap-4 md:gap-4">
                   {navigationLinks.map((link, index) => (
-                    <NavigationMenuItem key={index} className="w-full">
+                    <NavigationMenuItem key={index} className="w-24">
                       <Link
                         href={link.href}
                         className="flex-row items-center gap-2 py-1.5"
