@@ -1,9 +1,10 @@
-import React from 'react';
+import Hero from "@/components/modules/Home/Hero";
+
 
 const HomePage = () => {
     return (
-        <div>
-            This is home page
+        <div className="container mx-auto">
+            <Hero />
         </div>
     );
 };
