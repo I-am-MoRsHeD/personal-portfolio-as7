@@ -1,3 +1,4 @@
+import Footer from '@/components/shared/Footer';
 import Navbar from '@/components/shared/Navbar';
 import React from 'react';
 
@@ -12,7 +13,7 @@ const HomeLayout = ({ children }: IProps) => {
             <div className='min-h-dvh'>
                 {children}
             </div>
-            <h1>This is footer</h1>
+            <Footer />
         </div>
     );
 };
