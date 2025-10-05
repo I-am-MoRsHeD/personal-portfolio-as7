@@ -1,3 +1,4 @@
+'use client';
 import UserMenu from "@/components/ui/user-menu"
 import { Button } from "@/components/ui/button"
 import {
@@ -13,9 +14,12 @@ import {
 import { navigationLinks } from "@/static/navinfo"
 import Link from "next/link"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
+import { cn } from "@/lib/utils";
 
 
 export default function Navbar() {
+  const pathname = usePathname();
 
   return (
     <header className="container mx-auto sticky top-1 z-50 bg-muted rounded-md px-2">
@@ -83,17 +87,27 @@ export default function Navbar() {
         {/* Middle area */}
         <NavigationMenu className="max-md:hidden">
           <NavigationMenuList className="flex flex-row gap-5 w-full">
-            {navigationLinks.map((link, index) => (
-              <NavigationMenuItem key={index} className="">
-                <Link
-                  href={link.href}
-                  className="text-muted-foreground hover:text-primary py-1.5 font-medium"
-                  title={link.label}
-                >
-                  <span>{link.label}</span>
-                </Link>
-              </NavigationMenuItem>
-            ))}
+            {navigationLinks.map((link, index) => {
+              const isActive = link.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(link.href);
+
+              return (
+                <NavigationMenuItem key={index}>
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      "font-medium transition-all border-b-2",
+                      isActive
+                        ? "text-primary border-primary rounded-xl px-2"
+                        : "text-muted-foreground border-transparent hover:text-primary hover:border-primary/50"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                </NavigationMenuItem>
+              );
+            })}
           </NavigationMenuList>
         </NavigationMenu>
         {/* Right side */}
