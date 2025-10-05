@@ -11,4 +11,16 @@ export interface Blog {
     };
     createdAt: string;
     views?: number;
+};
+
+
+export interface Project {
+    id: string;
+    title: string;
+    description: string;
+    thumbnail: string;
+    projectLink: string;
+    liveLink: string;
+    features: string[];
+    createdAt: string;
 }
