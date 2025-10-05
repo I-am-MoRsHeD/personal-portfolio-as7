@@ -5,20 +5,17 @@ import { aboutData } from "@/static/about";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import SectionTitle from "@/components/shared/SectionTitle";
 
-const About = () => {
+const AboutInfo = () => {
     useEffect(() => {
         AOS.init({ duration: 1000 });
     }, []);
 
     return (
-        <section className="my-20">
-            <SectionTitle title="About Me" />
-
+        <section className="my-16">
             <div className="flex flex-col lg:flex-row justify-between gap-10 items-start">
                 <div className="">
-                    <h3 className="text-xl lg:text-3xl mb-4 border-b border-gray-600 w-fit">
+                    <h3 className="text-xl lg:text-3xl mb-4 border-b border-gray-600 w-fit text-primary">
                         Who Am I?
                     </h3>
 
@@ -123,4 +120,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default AboutInfo;
