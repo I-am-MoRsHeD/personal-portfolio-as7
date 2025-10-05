@@ -29,7 +29,7 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
                         {title}
                     </h2>
                     <p className="text-muted-foreground/110 text-sm leading-relaxed line-clamp-3">
-                        {content}
+                        {content?.length > 150 ? content?.slice(0, 150) + "...." : content}
                     </p>
                 </div>
 
