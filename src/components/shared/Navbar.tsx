@@ -17,6 +17,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import UserMenu from "@/components/ui/user-menu";
 import { useUser } from "@/hooks/useUser";
+import { Spinner } from "../ui/spinner";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -120,7 +121,9 @@ export default function Navbar() {
         {/* Right side */}
         <div className="flex flex-1 items-center justify-end gap-4">
           {loading ? (
-            <span className="text-sm text-muted-foreground">Loading...</span>
+            <span className="text-sm text-muted-foreground">
+              <Spinner />
+            </span>
           ) : user ? (
             <UserMenu user={user} setUser={setUser} />
           ) : (

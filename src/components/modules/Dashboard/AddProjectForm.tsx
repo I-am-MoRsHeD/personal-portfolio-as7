@@ -167,7 +167,7 @@ const AddProjectForm = () => {
                                     </FormItem>
                                 )}
                             />
-                            <SingleFileUpload setImage={setImage} />
+                            <SingleFileUpload setImage={setImage} image={image} />
                             {/* Submit */}
                             <Button type="submit" className="w-full">
                                 Submit Project
