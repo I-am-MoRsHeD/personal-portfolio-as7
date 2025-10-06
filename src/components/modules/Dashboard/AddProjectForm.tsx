@@ -27,7 +27,7 @@ const projectSchema = z.object({
     description: z.string().min(10, "Description is required"),
     projectLink: z.url("Must be a valid URL"),
     liveLink: z.url("Must be a valid URL"),
-    features: z.string().optional(),
+    features: z.string().min(1, "Feature cannot be empty"),
 });
 
 type ProjectFormValues = z.infer<typeof projectSchema>;

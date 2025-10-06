@@ -20,8 +20,8 @@ export const dashboardNavInfo = [
         url: "/project-management",
     },
     {
-        title: "Create Blogs",
-        url: "/create-blogs",
+        title: "Create Blog",
+        url: "/create-blog",
     },
     {
         title: "Blog Management",

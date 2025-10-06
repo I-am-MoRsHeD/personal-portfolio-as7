@@ -6,7 +6,9 @@ import { Blog } from '@/types';
 
 const Blogs = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blog`, {
-        next: { revalidate: 5 }
+        next: {
+            tags: ["BLOG"]
+        }
     });
     const { data: blogs } = await res.json();
 
