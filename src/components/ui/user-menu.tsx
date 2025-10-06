@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   BoltIcon,
   LogOutIcon,
@@ -5,7 +6,6 @@ import {
 
 import {
   Avatar,
-  AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
@@ -19,25 +19,46 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import Link from "next/link"
+import { User } from "@/types"
+import { logOut } from "@/services/postServices";
+import { Dispatch, SetStateAction } from "react"
+import { toast } from "sonner"
 
-export default function UserMenu() {
+interface UserMenuProps {
+  user: User;
+  setUser: Dispatch<SetStateAction<User | null>>;
+};
+
+export default function UserMenu({ user, setUser }: UserMenuProps) {
+  const logout = async () => {
+    try {
+      const res = await logOut();
+      if (res?.success) {
+        toast.success(res?.message);
+        setUser(null);
+      }
+    } catch (error: any) {
+      toast.error(error?.response?.message || 'Something went wrong!')
+      console.log(error);
+    }
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="h-auto p-0 hover:bg-foreground">
           <Avatar>
-            <AvatarImage src="./avatar.jpg" alt="Profile image" />
-            <AvatarFallback>KK</AvatarFallback>
+            {user && <AvatarImage src="/myImage.jpg" alt="Profile image" />}
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="max-w-64" align="end">
         <DropdownMenuLabel className="flex min-w-0 flex-col">
           <span className="text-foreground truncate text-sm font-medium">
-            Keith Kennedy
+            {user?.name}
           </span>
           <span className="text-muted-foreground truncate text-xs font-normal">
-            k.kennedy@originui.com
+            {user?.email}
           </span>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -52,7 +73,7 @@ export default function UserMenu() {
           </Link>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={logout}>
           <LogOutIcon size={16} className="opacity-60" aria-hidden="true" />
           <span>Logout</span>
         </DropdownMenuItem>

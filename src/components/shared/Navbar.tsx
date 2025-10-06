@@ -1,25 +1,26 @@
 'use client';
-import UserMenu from "@/components/ui/user-menu"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
-} from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
-import { navigationLinks } from "@/static/navinfo"
-import Link from "next/link"
-import Image from "next/image"
-import { usePathname } from "next/navigation"
+} from "@/components/ui/popover";
+import { navigationLinks } from "@/static/navinfo";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-
+import UserMenu from "@/components/ui/user-menu";
+import { useUser } from "@/hooks/useUser";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const { user, setUser, loading } = useUser();
 
   return (
     <header className="container mx-auto sticky top-1 z-50 bg-muted rounded-md px-2">
@@ -34,6 +35,7 @@ export default function Navbar() {
                 variant="ghost"
                 size="icon"
               >
+                {/* mobile menu icon */}
                 <svg
                   className="pointer-events-none"
                   width={16}
@@ -44,7 +46,6 @@ export default function Navbar() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
                     d="M4 12L20 12"
@@ -80,17 +81,22 @@ export default function Navbar() {
           </Popover>
           <div className="flex items-center gap-6">
             <Link href="/" className="text-primary hover:text-primary/90">
-              <Image src="https://res.cloudinary.com/dt3h4wx0k/image/upload/v1759167450/logo_2_b0iq3e.png" width={120} height={120} alt="Logo" />
+              <Image
+                src="https://res.cloudinary.com/dt3h4wx0k/image/upload/v1759167450/logo_2_b0iq3e.png"
+                width={120}
+                height={120}
+                alt="Logo"
+              />
             </Link>
           </div>
         </div>
+
         {/* Middle area */}
         <NavigationMenu className="max-md:hidden">
           <NavigationMenuList className="flex flex-row gap-5 w-full">
             {navigationLinks.map((link, index) => {
-              const isActive = link.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(link.href);
+              const isActive =
+                link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
 
               return (
                 <NavigationMenuItem key={index}>
@@ -110,11 +116,20 @@ export default function Navbar() {
             })}
           </NavigationMenuList>
         </NavigationMenu>
+
         {/* Right side */}
         <div className="flex flex-1 items-center justify-end gap-4">
-          <UserMenu />
+          {loading ? (
+            <span className="text-sm text-muted-foreground">Loading...</span>
+          ) : user ? (
+            <UserMenu user={user} setUser={setUser} />
+          ) : (
+            <Button asChild className="text-sm">
+              <Link href="/login">Login</Link>
+            </Button>
+          )}
         </div>
       </div>
     </header>
-  )
+  );
 }
