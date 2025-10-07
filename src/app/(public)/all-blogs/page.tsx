@@ -1,15 +1,11 @@
 import BlogCard from '@/components/modules/Blog/BlogCard';
 import SectionTitle from '@/components/shared/SectionTitle';
+import { getAllBlogs } from '@/services/getServices';
 import { Blog } from '@/types';
 import React from 'react';
 
 const AllBlogsPage = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blog`, {
-        next: {
-            tags: ["BLOG"]
-        }
-    });
-    const { data: blogs } = await res.json();
+    const blogs = await getAllBlogs();
 
     return (
         <div className='container mx-auto my-14'>

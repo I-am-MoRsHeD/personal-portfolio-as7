@@ -1,13 +1,10 @@
 import ProjectCard from '@/components/modules/Project/ProjectCard';
 import SectionTitle from '@/components/shared/SectionTitle';
+import { getAllProjects } from '@/services/getServices';
 import { Project } from '@/types';
-import React from 'react';
 
 const ProjectPage = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/project`, {
-        next: { tags: ["PROJECT"] }
-    });
-    const { data: projects } = await res.json();
+    const projects = await getAllProjects();
 
     return (
         <div className='container mx-auto my-14'>

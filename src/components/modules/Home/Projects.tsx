@@ -3,14 +3,10 @@ import React from 'react';
 import Link from 'next/link';
 import ProjectCard from '../Project/ProjectCard';
 import { Project } from '@/types';
+import { getAllProjects } from '@/services/getServices';
 
 const Projects = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/project`, {
-        next: {
-            tags: ["PROJECT"]
-        }
-    });
-    const { data: projects } = await res.json();
+    const projects = await getAllProjects();
 
     return (
         <div className="my-44">

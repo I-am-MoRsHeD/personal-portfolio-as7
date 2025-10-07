@@ -3,14 +3,10 @@ import React from 'react';
 import BlogCard from '../Blog/BlogCard';
 import Link from 'next/link';
 import { Blog } from '@/types';
+import { getAllBlogs } from '@/services/getServices';
 
 const Blogs = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blog`, {
-        next: {
-            tags: ["BLOG"]
-        }
-    });
-    const { data: blogs } = await res.json();
+    const blogs = await getAllBlogs();
 
     return (
         <div className="my-10">
