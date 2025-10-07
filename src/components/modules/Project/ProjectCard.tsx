@@ -5,7 +5,7 @@ import { Project } from "@/types";
 
 const ProjectCard = ({ project }: { project: Project }) => {
     return (
-        <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-[650px]">
+        <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-[650px] max-w-full">
             {/* Thumbnail */}
             {project.thumbnail && (
                 <div className="relative w-full h-60">

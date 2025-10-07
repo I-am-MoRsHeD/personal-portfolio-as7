@@ -7,7 +7,7 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
     const { id, title, content, thumbnail, author, createdAt, views = 0 } = blog;
 
     return (
-        <Link href={`/all-blogs/${id}`} className="bg-background shadow-md rounded-2xl overflow-hidden border border-primary-foreground flex flex-col h-[420px] hover:shadow-lg transition min-w-96">
+        <Link href={`/all-blogs/${id}`} className="bg-background shadow-md rounded-2xl overflow-hidden border border-primary-foreground flex flex-col h-[420px] hover:shadow-lg transition max-w-full min-w-none xl:min-w-sm xl:max-w-none">
 
             {thumbnail && (
                 <div className="relative h-48 w-full">

@@ -12,9 +12,9 @@ const Projects = async () => {
         <div className="my-44">
             <SectionTitle title="Projects" />
             <div
-                className={`my-10 grid gap-5 ${projects?.length < 2
-                    ? "grid-cols-1 justify-items-center"
-                    : "grid-cols-2"}`}
+                className={`my-10 grid gap-2 lg:gap-5 w-full overflow-hidden px-4 xl:px-0 ${projects?.length < 2
+                    ? "grid-cols -1 justify-items-center"
+                    : "grid-cols-1 lg:grid-cols-2"}`}
             >
                 {
                     projects?.length < 1 ? (

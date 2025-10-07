@@ -5,7 +5,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="bg-muted">
+        <footer className="bg-muted px-4 lg:px-0">
             <div className="container mx-auto py-4 lg:py-16">
                 <div className="flex justify-center items-center gap-6">
                     <Link href="/" className="text-primary hover:text-primary/90">

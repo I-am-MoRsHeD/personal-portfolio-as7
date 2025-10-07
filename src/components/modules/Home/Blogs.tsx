@@ -12,7 +12,7 @@ const Blogs = async () => {
         <div className="my-10">
             <SectionTitle title="Blogs" />
             <div
-                className={`my-10 grid gap-5 ${blogs?.length < 2
+                className={`my-10 grid gap-5 px-4 xl:px-0 w-full overflow-hidden ${blogs?.length < 2
                     ? "grid-cols-1 justify-items-center"
                     : blogs?.length === 2
                         ? "sm:grid-cols-2 justify-items-center"

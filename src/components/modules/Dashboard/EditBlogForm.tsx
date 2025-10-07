@@ -86,7 +86,7 @@ const EditBlogForm: React.FC<EditBlogFormProps> = ({ blog, setIsModalOpen }) => 
     return (
         <div>
             <SectionTitle title="Edit Blog" />
-            <Card className="shadow-md overflow-y-auto lg:h-96">
+            <Card className="shadow-md overflow-y-auto h-96">
                 <CardContent className="p-6">
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
