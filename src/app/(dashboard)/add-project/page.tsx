@@ -1,5 +1,11 @@
 import AddProjectForm from '@/components/modules/Dashboard/AddProjectForm';
-import React from 'react';
+import { Metadata } from 'next';
+
+
+export const metadata: Metadata = {
+    title: 'Add Project page',
+    description: 'Add project which i have done so far!'
+}
 
 const AddProjectPage = () => {
     return (

@@ -2,6 +2,12 @@ import ProjectCard from '@/components/modules/Project/ProjectCard';
 import SectionTitle from '@/components/shared/SectionTitle';
 import { getAllProjects } from '@/services/getServices';
 import { Project } from '@/types';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Project page',
+    description: 'All the project that completed by my expertise!'
+}
 
 const ProjectPage = async () => {
     const projects = await getAllProjects();

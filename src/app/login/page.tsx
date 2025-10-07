@@ -1,7 +1,13 @@
 import LoginForm from '@/components/modules/Login/LoginForm';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+
+export const metadata: Metadata = {
+    title: 'Login page',
+    description: 'Put the credentials to login'
+}
 
 const LoginPage = () => {
     return (

@@ -2,7 +2,12 @@ import BlogCard from '@/components/modules/Blog/BlogCard';
 import SectionTitle from '@/components/shared/SectionTitle';
 import { getAllBlogs } from '@/services/getServices';
 import { Blog } from '@/types';
-import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Blog page',
+    description: 'All the blogs which created by owner'
+}
 
 const AllBlogsPage = async () => {
     const blogs = await getAllBlogs();

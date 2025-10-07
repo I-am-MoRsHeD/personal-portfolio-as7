@@ -1,5 +1,10 @@
 import AboutInfo from '@/components/modules/About/AboutInfo';
-import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About me page',
+  description: 'All information about my journey and who i am!'
+}
 
 const AboutPage = () => {
     return (
