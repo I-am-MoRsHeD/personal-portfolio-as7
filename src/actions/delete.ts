@@ -24,3 +24,25 @@ export const deleteProjectAction = async (id: string) => {
 
     return result;
 };
+
+
+export const deleteBlogAction = async (id: number) => {
+    const cookieStore = await cookies();
+    const accessToken = cookieStore.get('accessToken')?.value;
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blog/${id}`, {
+        method: "DELETE",
+        headers: {
+            Cookie: `accessToken=${accessToken ?? ""}`
+        },
+        credentials: "include"
+    });
+
+    const result = await res.json();
+
+    if (result?.success) {
+        revalidateTag("BLOG");
+        revalidatePath("/all-blogs");
+    };
+
+    return result;
+};

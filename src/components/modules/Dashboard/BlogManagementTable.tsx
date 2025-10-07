@@ -17,21 +17,20 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import { Project } from "@/types"
+import { Blog } from "@/types"
 import { Edit, Trash2 } from "lucide-react"
-import Link from "next/link"
 import { useState } from "react"
-import EditProjectForm from "./EditProjectForm";
-import { deleteProjectAction } from "@/actions/delete";
 import { toast } from "sonner";
+import EditBlogForm from "./EditBlogForm";
+import { deleteBlogAction } from "@/actions/delete";
 
-export default function ProjectManagementTable({ projects }: { projects: Project[] }) {
+export default function BlogManagementTable({ blogs }: { blogs: Blog[] }) {
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+    const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
 
-    const handleModal = (idx: number, project: Project) => {
-        setSelectedProject(project);
+    const handleModal = (idx: number, Blog: Blog) => {
+        setSelectedBlog(Blog);
         if (idx === 1) {
             console.log('hitt');
             setIsEditModalOpen(true);
@@ -41,10 +40,10 @@ export default function ProjectManagementTable({ projects }: { projects: Project
         };
     };
 
-    const handleDeleteProject = async (id: string) => {
-        const toastId = toast.loading('Deleting project....');
+    const handleDeleteBlog = async (id: number) => {
+        const toastId = toast.loading('Deleting blog....');
         try {
-            const result = await deleteProjectAction(id);
+            const result = await deleteBlogAction(id);
             if (result?.success) {
                 toast.success(result?.message, { id: toastId });
             } else {
@@ -57,53 +56,51 @@ export default function ProjectManagementTable({ projects }: { projects: Project
 
     return (
         <div className="bg-background p-2 rounded-lg w-full overflow-x-auto">
-            <SectionTitle title="Project Management" />
+            <SectionTitle title="Blog Management" />
             <div className="w-full">
                 <Table className="w-full table-auto border-collapse">
                     <TableHeader className="bg-transparent w-full">
                         <TableRow className="hover:bg-transparent w-full">
                             <TableHead>S.No/ID</TableHead>
                             <TableHead>Title</TableHead>
-                            <TableHead>Live Link</TableHead>
+                            <TableHead>Content</TableHead>
                             <TableHead className="text-right">Actions</TableHead>
                         </TableRow>
                     </TableHeader>
                     <tbody aria-hidden="true" className="table-row h-2"></tbody>
 
                     <TableBody className="[&_td:first-child]:rounded-l-lg [&_td:last-child]:rounded-r-lg">
-                        {projects?.map((project) => (
+                        {blogs?.map((blog) => (
                             <TableRow
-                                key={project.id}
+                                key={blog.id}
                                 className="odd:bg-muted/50 odd:hover:bg-muted/50 border-none hover:bg-transparent"
                             >
-                                <TableCell className="py-2.5 font-medium">{project.id}</TableCell>
-                                <TableCell className="py-2.5">{project.title?.length > 15 ? project.title?.slice(0, 15) + "..." : project.title}</TableCell>
+                                <TableCell className="py-2.5 font-medium">{blog.id}</TableCell>
+                                <TableCell className="py-2.5">{blog.title?.length > 15 ? blog.title?.slice(0, 15) + "..." : blog.title}</TableCell>
                                 <TableCell className="py-2.5">
-                                    <Link href={project.liveLink} target="_blank" className="text-blue-600 underline">
-                                        {project.liveLink?.length > 20 ? project?.liveLink?.slice(0, 20) + '.....' : project?.liveLink}
-                                    </Link>
+                                    {blog.content?.length > 30 ? blog?.content?.slice(0, 30) + '.....' : blog?.content}
                                 </TableCell>
                                 <TableCell className="py-2.5 flex items-center gap-2 justify-end">
-                                    {/* update project form */}
+                                    {/* update blog form */}
                                     <Dialog>
                                         <DialogTrigger
                                             className="flex items-center bg-background py-1 px-2 rounded-md"
-                                            onClick={() => handleModal(1, project)}>
+                                            onClick={() => handleModal(1, blog)}>
                                             <Edit size={16} className="mr-1" />
                                             Edit
                                         </DialogTrigger>
                                         {isEditModalOpen && <DialogContent>
                                             <DialogHeader>
                                                 <DialogTitle></DialogTitle>
-                                                <EditProjectForm project={selectedProject as Project} setIsModalOpen={setIsEditModalOpen} />
+                                                <EditBlogForm blog={selectedBlog as Blog} setIsModalOpen={setIsEditModalOpen} />
                                             </DialogHeader>
                                         </DialogContent>}
                                     </Dialog>
-                                    {/* delete project */}
+                                    {/* delete blog */}
                                     <AlertDialog>
                                         <AlertDialogTrigger
                                             className="flex items-center bg-destructive text-white py-1 px-2 rounded-md"
-                                            onClick={() => handleModal(2, project)}>
+                                            onClick={() => handleModal(2, blog)}>
                                             <Trash2 size={16} className="mr-1" />
                                             Delete
                                         </AlertDialogTrigger>
@@ -111,12 +108,12 @@ export default function ProjectManagementTable({ projects }: { projects: Project
                                             <AlertDialogHeader>
                                                 <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
                                                 <AlertDialogDescription>
-                                                    This action cannot be undone. This will permanently delete your project from server.
+                                                    This action cannot be undone. This will permanently delete your blog from server.
                                                 </AlertDialogDescription>
                                             </AlertDialogHeader>
                                             <AlertDialogFooter>
                                                 <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                                <AlertDialogAction onClick={() => handleDeleteProject(project?.id)}>Continue</AlertDialogAction>
+                                                <AlertDialogAction onClick={() => handleDeleteBlog(blog?.id)}>Continue</AlertDialogAction>
                                             </AlertDialogFooter>
                                         </AlertDialogContent>}
                                     </AlertDialog>
@@ -128,7 +125,7 @@ export default function ProjectManagementTable({ projects }: { projects: Project
                     <TableFooter className="bg-transparent">
                         <TableRow className="hover:bg-transparent">
                             <TableCell colSpan={3}>Total</TableCell>
-                            <TableCell className="text-right">{projects?.length} Projects</TableCell>
+                            <TableCell className="text-right">{blogs?.length} Blogs</TableCell>
                         </TableRow>
                     </TableFooter>
                 </Table>
