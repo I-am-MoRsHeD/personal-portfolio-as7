@@ -7,13 +7,13 @@ const privateRoutes = [
     '/project-management',
     '/create-blog',
     '/blog-management',
-]
+];
 
 const authRoutes = ['/login']
 
-export function middleware(req: NextRequest) {
+export async function middleware(req: NextRequest) {
     const { pathname } = req.nextUrl
-    const accessToken = req.cookies.get('accessToken')?.value
+    const accessToken = req.cookies.get('accessToken')?.value;
 
     if (!accessToken && privateRoutes.some((route) => pathname.startsWith(route))) {
         const loginUrl = new URL('/login', req.url)

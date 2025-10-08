@@ -12,7 +12,8 @@ export const login = async (data: FieldValues) => {
     });
 
     if (!res?.ok) {
-        console.error('User login failed!', await res.text());
+        // console.error('User login failed!', await res.text());
+        await res.text();
     };
     const result = await res.json();
 

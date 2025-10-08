@@ -23,8 +23,7 @@ const LoginForm = () => {
                 router.push('/');
             }
         } catch (error: any) {
-            toast.error(error?.response?.message, { id: toastId })
-            console.error(error);
+            toast.error("Wrong Credentials", { id: toastId })
         }
     };
 
