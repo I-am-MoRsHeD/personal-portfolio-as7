@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import ProjectManagementTable from '@/components/modules/Dashboard/ProjectManagementTable';
 import { getAllProjects } from '@/services/getServices';
 import { Metadata } from 'next';

@@ -8,7 +8,6 @@ interface IProps {
     params: Promise<any>
 };
 
-
 export const generateStaticParams = async () => {
     const blogs = await getAllBlogs();
 

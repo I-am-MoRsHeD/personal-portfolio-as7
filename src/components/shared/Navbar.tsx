@@ -83,7 +83,7 @@ export default function Navbar() {
           <div className="flex items-center gap-6">
             <Link href="/" className="text-primary hover:text-primary/90">
               <Image
-                src="https://res.cloudinary.com/dt3h4wx0k/image/upload/v1759167450/logo_2_b0iq3e.png"
+                src="/logo.png"
                 width={120}
                 height={120}
                 alt="Logo"

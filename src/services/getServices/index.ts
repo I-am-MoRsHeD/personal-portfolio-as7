@@ -1,10 +1,18 @@
+'use server';
 
+import { cookies } from "next/headers";
 
 export const getMe = async () => {
+    const cookieStore = await cookies();
+    const accessToken = cookieStore.get('accessToken')?.value;
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/me`, {
+        headers: {
+            Cookie: `accessToken=${accessToken ?? ""}`
+        },
         credentials: "include"
     });
     const { data } = await res.json();
+
     return data;
 };
 
@@ -25,12 +33,25 @@ export const getAllBlogs = async () => {
             tags: ["BLOG"]
         }
     });
+
+    if (!res.ok) {
+        console.error("Failed to fetch blog:", res.status, await res.text());
+        return [];
+    }
+
     const { data: blogs } = await res.json();
     return blogs;
 };
 
 export const getBlogById = async (blogId: string) => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blog/${blogId}`);
+
+    if (!res.ok) {
+        console.error("Failed to fetch blog:", res.status, await res.text());
+        return {};
+    }
+
     return await res.json();
-}
+};
+
 

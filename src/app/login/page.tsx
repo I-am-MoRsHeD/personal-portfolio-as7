@@ -16,7 +16,7 @@ const LoginPage = () => {
                 <div className="flex flex-col gap-4 p-6 md:p-10">
                     <div className="flex justify-center gap-2 md:justify-start">
                         <Link href="/" className="flex items-center gap-2 font-medium">
-                            <Image src="https://res.cloudinary.com/dt3h4wx0k/image/upload/v1759167450/logo_2_b0iq3e.png" width={120} height={120} alt="Logo" />
+                            <Image src="/logo.png" width={120} height={120} alt="Logo" />
                         </Link>
                     </div>
                     <div className="flex flex-1 items-center justify-center">

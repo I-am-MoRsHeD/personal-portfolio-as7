@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import ProjectCard from '@/components/modules/Project/ProjectCard';
 import SectionTitle from '@/components/shared/SectionTitle';
 import { getAllProjects } from '@/services/getServices';
