@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 
 export const deleteProjectAction = async (id: string) => {
     const cookieStore = await cookies();
-    const accessToken = cookieStore.get('accessToken')?.value;
+    const accessToken = cookieStore.get('token')?.value;
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/project/${id}`, {
         method: "DELETE",
         headers: {
@@ -28,7 +28,7 @@ export const deleteProjectAction = async (id: string) => {
 
 export const deleteBlogAction = async (id: number) => {
     const cookieStore = await cookies();
-    const accessToken = cookieStore.get('accessToken')?.value;
+    const accessToken = cookieStore.get('token')?.value;
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blog/${id}`, {
         method: "DELETE",
         headers: {

@@ -9,7 +9,7 @@ The app uses **ISR (Incremental Static Regeneration)** for optimal performance a
 ## 🚀 Live Demo
 
 🔗 **Frontend URL:** [https://personal-portfolio-as7.vercel.app](https://personal-portfolio-as7.vercel.app)  
-🔗 **Backend API:** [https://your-backend-api-url.com](https://your-backend-api-url.com)
+🔗 **Backend API:** [https://personal-portfolio-server-as7.vercel.app](https://personal-portfolio-server-as7.vercel.app)
 
 ---
 

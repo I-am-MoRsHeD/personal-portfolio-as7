@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 
 export const updateProjectAction = async (id: string, formData: FormData) => {
     const cookieStore = await cookies();
-    const accessToken = cookieStore.get('accessToken')?.value;
+    const accessToken = cookieStore.get('token')?.value;
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/project/${id}`, {
         method: "PATCH",
         headers: {
@@ -28,7 +28,7 @@ export const updateProjectAction = async (id: string, formData: FormData) => {
 
 export const updateBlogAction = async (id: number, formData: FormData) => {
     const cookieStore = await cookies();
-    const accessToken = cookieStore.get('accessToken')?.value;
+    const accessToken = cookieStore.get('token')?.value;
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blog/${id}`, {
         method: "PATCH",
         headers: {

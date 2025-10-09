@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 export async function createProjectAction(formData: FormData) {
     try {
         const cookieStore = await cookies();
-        const accessToken = cookieStore.get('accessToken')?.value;
+        const accessToken = cookieStore.get('token')?.value;
         const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/project/create`, {
             method: "POST",
             headers: {
@@ -32,7 +32,7 @@ export async function createProjectAction(formData: FormData) {
 export async function createBlogAction(formData: FormData) {
     try {
         const cookieStore = await cookies();
-        const accessToken = cookieStore.get('accessToken')?.value;
+        const accessToken = cookieStore.get('token')?.value;
         const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/blog/create`, {
             method: "POST",
             headers: {

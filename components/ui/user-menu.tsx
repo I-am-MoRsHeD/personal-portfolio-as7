@@ -31,14 +31,15 @@ interface UserMenuProps {
 
 export default function UserMenu({ user, setUser }: UserMenuProps) {
   const logout = async () => {
+    const toastId = toast.loading('Logging out...');
     try {
       const res = await logOut();
       if (res?.success) {
-        toast.success(res?.message);
+        toast.success(res?.message, { id: toastId });
         setUser(null);
       }
     } catch (error: any) {
-      toast.error(error?.response?.message || 'Something went wrong!')
+      toast.error(error?.response?.message || 'Something went wrong!', { id: toastId });
       console.log(error);
     }
   };

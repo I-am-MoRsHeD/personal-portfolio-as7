@@ -1,19 +1,20 @@
 'use server';
 
 import { cookies } from "next/headers";
+import { jwtDecode } from "jwt-decode";
+import { User } from "@/types";
 
 export const getMe = async () => {
     const cookieStore = await cookies();
-    const accessToken = cookieStore.get('accessToken')?.value;
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/me`, {
-        headers: {
-            Cookie: `accessToken=${accessToken ?? ""}`
-        },
-        credentials: "include"
-    });
-    const { data } = await res.json();
+    const accessToken = cookieStore.get('token')?.value;
+    let decodedToken = null;
 
-    return data;
+    if (accessToken) {
+        decodedToken = jwtDecode(accessToken) as User;
+        return decodedToken;
+    } else {
+        return null;
+    }
 };
 
 

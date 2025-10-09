@@ -1,3 +1,6 @@
+'use server';
+
+import { cookies } from "next/headers";
 
 
 
@@ -10,6 +13,11 @@ export const logOut = async () => {
         },
     });
     const result = await res.json();
+
+    if (result?.success) {
+        const cookieStore = await cookies();
+        cookieStore.delete('token');
+    };
 
     return result;
 };

@@ -1,3 +1,5 @@
+'use server';
+import { cookies } from "next/headers";
 import { FieldValues } from "react-hook-form";
 
 
@@ -16,6 +18,15 @@ export const login = async (data: FieldValues) => {
         await res.text();
     };
     const result = await res.json();
+    if (result?.success) {
+        const cookieStore = await cookies();
+        cookieStore.set('token', result?.data?.accessToken, {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'none',
+            path: '/'
+        });
+    };
 
     return result;
 };
