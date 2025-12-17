@@ -28,17 +28,17 @@ export const aboutData = {
     ],
     education: [
         {
-            year: "2019 – 2025",
+            year: "2019 - 2025",
             institute: "Omargani M.E.S. University College",
             degree: "Bachelor of Business Administration",
         },
         {
-            year: "2016 – 2018",
+            year: "2016 - 2018",
             institute: "Hathazari University College",
             degree: "Higher Secondary Certificate (Intermediate)",
         },
         {
-            year: "2011 – 2016",
+            year: "2011 - 2016",
             institute: "Madarsha Adarsha High School",
             degree: "Secondary School Certificate",
         },

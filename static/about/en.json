@@ -1,0 +1,64 @@
+{
+    "name": "Mohammed Morshed",
+    "location": "Chattogram, Bangladesh",
+    "title": "MERN Stack Developer",
+    "image": "/myImage.jpg",
+    "headings": {
+        "whoAmI": "Who Am I?",
+        "skills": "Skills",
+        "education": "Education",
+        "experience": "Experience"
+    },
+    "bio": [
+        "Hi! I am Mohammed Morshed from Chattogram, Bangladesh. I am a MERN Stack Developer and I can build user friendly websites based on user comfortability.",
+        "My persistent and self-motivated skills help me stay focused on my work and projects until completion.",
+        "I hope this introduction gives you a good overview about me as a developer and person.",
+        "If you have any further questions, feel free to reach out. Thank you."
+    ],
+    "skills": [
+        "JavaScript",
+        "React.js",
+        "Next.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "PostgreSQL",
+        "TailwindCSS",
+        "TypeScript",
+        "Prisma",
+        "JWT",
+        "Git/GitHub",
+        "REST API"
+    ],
+    "education": [
+        {
+            "year": "2019 - 2025",
+            "institute": "Omargani M.E.S. University College",
+            "degree": "Bachelor of Business Administration"
+        },
+        {
+            "year": "2016 - 2018",
+            "institute": "Hathazari University College",
+            "degree": "Higher Secondary Certificate (Intermediate)"
+        },
+        {
+            "year": "2011 - 2016",
+            "institute": "Madarsha Adarsha High School",
+            "degree": "Secondary School Certificate"
+        }
+    ],
+    "experience": [
+        {
+            "year": "August 2024 - May 2025",
+            "company": "Spands SPS",
+            "position": "Junior Frontend Developer",
+            "description": "Spands SPS is a UK-based startup where I worked on multiple projects including Diasporex, Eventick, and QuizNPop."
+        },
+        {
+            "year": "February 2024 - June 2024",
+            "company": "ABM Global Limited",
+            "position": "MERN Stack Developer",
+            "description": "ABM Global Limited was my first startup experience working on POS-related projects."
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "name": "Mohammed Morshed",
+    "location": "Chattogram, Bangladesh",
+    "title": "Desenvolvedor MERN Stack",
+    "image": "/myImage.jpg",
+    "headings": {
+        "whoAmI": "Quem Sou Eu?",
+        "skills": "Habilidades",
+        "education": "Educação",
+        "experience": "Experiência"
+    },
+    "bio": [
+        "Olá! Eu sou Mohammed Morshed, de Chattogram, Bangladesh. Sou um desenvolvedor MERN Stack e posso criar sites amigáveis ao usuário, focados no conforto e na experiência do usuário.",
+        "Minhas habilidades persistentes e minha automotivação me ajudam a manter o foco no trabalho e nos projetos até sua conclusão.",
+        "Espero que esta introdução forneça uma boa visão geral sobre mim como desenvolvedor e como pessoa.",
+        "Se você tiver alguma dúvida adicional ou quiser discutir oportunidades em potencial, sinta-se à vontade para entrar em contato. Obrigado!"
+    ],
+    "skills": [
+        "JavaScript",
+        "React.js",
+        "Next.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "PostgreSQL",
+        "TailwindCSS",
+        "TypeScript",
+        "Prisma",
+        "JWT",
+        "Git/GitHub",
+        "REST API"
+    ],
+    "education": [
+        {
+            "year": "2019 - 2025",
+            "institute": "Omargani M.E.S. University College",
+            "degree": "Bacharelado em Administração de Empresas"
+        },
+        {
+            "year": "2016 - 2018",
+            "institute": "Hathazari University College",
+            "degree": "Certificado de Ensino Secundário Superior (Intermediário)"
+        },
+        {
+            "year": "2011 - 2016",
+            "institute": "Madarsha Adarsha High School",
+            "degree": "Certificado de Ensino Secundário"
+        }
+    ],
+    "experience": [
+        {
+            "year": "Agosto 2024 - Maio 2025",
+            "company": "Spands SPS",
+            "position": "Desenvolvedor Frontend Júnior",
+            "description": "A Spands SPS é uma startup baseada no Reino Unido onde trabalhei em vários projetos, incluindo Diasporex, Eventick e QuizNPop."
+        },
+        {
+            "year": "Fevereiro 2024 - Junho 2024",
+            "company": "ABM Global Limited",
+            "position": "Desenvolvedor MERN Stack",
+            "description": "A ABM Global Limited foi minha primeira experiência em startup, trabalhando em projetos relacionados a POS com uma pequena equipe."
+        }
+    ]
+}

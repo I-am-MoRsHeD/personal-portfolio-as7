@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 import UserMenu from "../ui/user-menu";
 import { useUser } from "../../hooks/useUser";
 import { Spinner } from "../ui/spinner";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -120,6 +121,7 @@ export default function Navbar() {
 
         {/* Right side */}
         <div className="flex flex-1 items-center justify-end gap-4">
+          {/* <LanguageSwitcher /> */}
           {loading ? (
             <span className="text-sm text-muted-foreground">
               <Spinner />
